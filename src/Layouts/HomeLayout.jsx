@@ -1,7 +1,9 @@
 import { AiFillCloseCircle } from "react-icons/ai";
 import { FiMenu } from "react-icons/fi";
 import { Link } from "react-router-dom";
-function HomeLayout({children}) {
+
+import Footer from "../Components/Footer";
+function HomeLayout({ children }) {
     function changeWidth() {
         const drawerSide = document.getElementsByClassName("drawer-side");
         drawerSide[0].style.width = 'auto'; 
@@ -9,7 +11,9 @@ function HomeLayout({children}) {
 function hideDrawer() {
     const element = document.getElementsByClassName("drawer-toggle");
     element[0].checked = false;
-    changeWidth();
+    // changeWidth();
+    const drawerSide = document.getElementsByClassName("drawer-side");
+    drawerSide[0].style.width = 0; 
 }
     return (
         <div className="min-h-[90vh]">
@@ -44,6 +48,7 @@ function hideDrawer() {
         </div>
 
         {children}
+        <Footer />
         </div>
     )
 }
